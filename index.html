@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celtic FC Fixtures 2025-26</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <header>
+        <img src="images/celtic-logo.png" alt="Celtic FC Logo" class="logo">
+        <h1>Celtic FC Fixtures 2025-26 Season</h1>
+        <p>Follow the Hoops' journey in the Scottish Premiership, UEFA Champions League, and more!</p>
+    </header>
+    <main>
+        <section id="filter-section">
+            <label for="competition-filter">Filter by Competition:</label>
+            <select id="competition-filter">
+                <option value="all">All Competitions</option>
+                <option value="Premiership">Scottish Premiership</option>
+                <option value="Champions League">UEFA Champions League</option>
+                <option value="Scottish Cup">Scottish Cup</option>
+                <option value="League Cup">Scottish League Cup</option>
+                <option value="Friendly">Friendly</option>
+            </select>
+        </section>
+        <section id="fixtures">
+            <table id="fixture-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Opponent</th>
+                        <th>Competition</th>
+                        <th>Venue</th>
+                        <th>Time (UK)</th>
+                        <th>TV Channel</th>
+                    </tr>
+                </thead>
+                <tbody id="fixture-body">
+                    <!-- Fixtures will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 Celtic FC Fixtures. Data sourced from official Celtic FC and SPFL websites.</p>
+    </footer>
+    <script src="javascript.js"></script>
+</body>
+</html>
