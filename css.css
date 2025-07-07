@@ -91,6 +91,28 @@ footer {
     width: 100%;
 }
 
+.footer-icons {
+    margin-top: 0.5em;
+    font-size: 1.5em;
+}
+
+.footer-icons a {
+    margin: 0 0.5em;
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-icons a:visited {
+    color: #fff;
+}
+
+.footer-icons a:hover {
+    color: #008000;
+    transform: scale(1.2);
+    text-shadow: 0 0 8px #00800055;
+    transition: color 0.2s, transform 0.2s, text-shadow 0.2s;
+}
+
 @media (max-width: 768px) {
     header h1 {
         font-size: 1.8rem;
