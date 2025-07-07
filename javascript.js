@@ -37,6 +37,7 @@ function filterFixtures() {
         const filteredFixtures = fixtures.filter(fixture => fixture.competition === filter);
         populateTable(filteredFixtures);
     }
+    if (window.addCompetitionIcons) window.addCompetitionIcons(); // Ensure icons are added after filtering
 }
 
 populateTable(fixtures);

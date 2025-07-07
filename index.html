@@ -82,6 +82,39 @@
         Thank you for visiting my AI generated website - Hail Hail!
     </div>
     <script src="javascript.js"></script>
+    <script>
+    // Add icons for each competition in the table after fixtures are populated
+    const competitionIcons = {
+        'Premiership': '🏆',
+        'Champions League': '⭐',
+        'Scottish Cup': '🥇',
+        'League Cup': '🥈',
+        'Friendly': '🤝'
+    };
+    function addCompetitionIcons() {
+        const rows = document.querySelectorAll('#fixture-table tbody tr');
+        rows.forEach(row => {
+            const compCell = row.children[2];
+            if (compCell) {
+                // Remove any existing icon to avoid duplicates
+                let comp = compCell.textContent.trim();
+                // Remove icon if already present
+                Object.values(competitionIcons).forEach(icon => {
+                    if (comp.startsWith(icon)) comp = comp.slice(icon.length).trim();
+                });
+                if (competitionIcons[comp]) {
+                    compCell.innerHTML = competitionIcons[comp] + ' ' + comp;
+                }
+            }
+        });
+    }
+    // Expose globally so it can be called after fixtures are populated
+    window.addCompetitionIcons = addCompetitionIcons;
+    // Run after fixtures are populated on initial load
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(addCompetitionIcons, 100); // Delay to ensure fixtures are loaded
+    });
+    </script>
     <br>
     <br>
 </body>
