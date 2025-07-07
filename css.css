@@ -18,7 +18,7 @@ body::before {
     right: 0;
     bottom: 0;
     z-index: -1;
-    background: url('celticpark-opacity.png') no-repeat center center fixed;
+    background: url('CELTICPARK-OPACITY.png') no-repeat center center fixed;
     background-size: cover;
     opacity: 0.5; /* Adjust this value as needed */
     pointer-events: none;
@@ -28,7 +28,7 @@ header {
     background-color: #006633;
     color: white;
     text-align: center;
-    padding: 3rem;
+    padding: 2rem;
 }
 
 header .logo {
