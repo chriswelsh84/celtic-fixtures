@@ -129,12 +129,14 @@
     // Countdown Timer for next game
     function getNextFixture() {
         const now = new Date();
-        // Parse fixture dates and find the next one in the future
         for (let i = 0; i < fixtures.length; i++) {
             let dateStr = fixtures[i].date;
+            let timeStr = fixtures[i].time && fixtures[i].time !== 'TBC' ? fixtures[i].time : '00:00';
             // Handle TBC dates by skipping
             if (dateStr.includes('TBC')) continue;
-            let dateObj = new Date(dateStr + 'T00:00:00');
+            // Combine date and time for accurate countdown
+            let dateTimeStr = dateStr + 'T' + timeStr.padStart(5, '0');
+            let dateObj = new Date(dateTimeStr);
             if (dateObj > now) {
                 return { ...fixtures[i], dateObj };
             }
