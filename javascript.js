@@ -1,14 +1,14 @@
 const fixtures = [
-    { date: "2025-07-04", opponent: "Queen's Park", competition: "Friendly", venue: "Away", time: "19:45", tv: "Celtic TV" },
-    { date: "2025-07-08", opponent: "Cork City", competition: "Friendly", venue: "Away", time: "18:00", tv: "Celtic TV" },
-    { date: "2025-08-02", opponent: "St Mirren", competition: "Premiership", venue: "Home", time: "16:30", tv: "Sky Sports" },
-    { date: "2025-08-31", opponent: "Rangers", competition: "Premiership", venue: "Away", time: "12:30", tv: "Sky Sports" },
-    { date: "2025-09-TBC", opponent: "RB Leipzig", competition: "Champions League", venue: "Away", time: "TBC", tv: "TNT Sports" },
-    { date: "2025-10-TBC", opponent: "Borussia Dortmund", competition: "Champions League", venue: "Home", time: "TBC", tv: "TNT Sports" },
-    { date: "2025-12-27", opponent: "Livingston", competition: "Premiership", venue: "Away", time: "15:00", tv: "TBC" },
-    { date: "2026-01-03", opponent: "Rangers", competition: "Premiership", venue: "Home", time: "12:30", tv: "Sky Sports" },
-    { date: "2026-02-28", opponent: "Rangers", competition: "Premiership", venue: "Away", time: "TBC", tv: "Sky Sports" },
-    { date: "2026-04-11", opponent: "St Mirren", competition: "Premiership", venue: "Away", time: "TBC", tv: "TBC" }
+    { date: "2025-07-04", opponent: "Queen's Park", competition: "Friendly", venue: "Away", time: "19:45", tv: "Celtic TV", score: "2-1" },
+    { date: "2025-07-08", opponent: "Cork City", competition: "Friendly", venue: "Away", time: "18:00", tv: "Celtic TV", score: "3-0" },
+    { date: "2025-08-02", opponent: "St Mirren", competition: "Premiership", venue: "Home", time: "16:30", tv: "Sky Sports", score: "1-1" },
+    { date: "2025-08-31", opponent: "Rangers", competition: "Premiership", venue: "Away", time: "12:30", tv: "Sky Sports", score: "0-2" },
+    { date: "2025-09-TBC", opponent: "RB Leipzig", competition: "Champions League", venue: "Away", time: "TBC", tv: "TNT Sports", score: null },
+    { date: "2025-10-TBC", opponent: "Borussia Dortmund", competition: "Champions League", venue: "Home", time: "TBC", tv: "TNT Sports", score: null },
+    { date: "2025-12-27", opponent: "Livingston", competition: "Premiership", venue: "Away", time: "15:00", tv: "TBC", score: null },
+    { date: "2026-01-03", opponent: "Rangers", competition: "Premiership", venue: "Home", time: "12:30", tv: "Sky Sports", score: null },
+    { date: "2026-02-28", opponent: "Rangers", competition: "Premiership", venue: "Away", time: "TBC", tv: "Sky Sports", score: null },
+    { date: "2026-04-11", opponent: "St Mirren", competition: "Premiership", venue: "Away", time: "TBC", tv: "TBC", score: null }
 ];
 
 function populateTable(fixtures) {
@@ -24,6 +24,7 @@ function populateTable(fixtures) {
             <td>${fixture.venue}</td>
             <td>${fixture.time}</td>
             <td>${fixture.tv}</td>
+            <td>${fixture.score !== null ? fixture.score : ''}</td>
         `;
         tableBody.appendChild(row);
     });

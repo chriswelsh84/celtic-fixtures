@@ -12,7 +12,10 @@
         <h1>Celtic FC Fixtures 2025-26 Season</h1>
         <p>Follow the Hoops' journey in the Scottish Premiership, UEFA Champions League, and more!</p>
     </header>
-    <div id="countdown-timer" style="text-align:center; font-size:1.3em; font-weight:bold; margin: 1em 0; color: #008000;"></div>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 2em; margin: 1em 0;">
+        <span id="last-result" style="font-size:1.1em; color:#555;"></span>
+        <span id="countdown-timer" style="font-size:1.3em; font-weight:bold; color: #008000;"></span>
+    </div>
     <main>
         <section id="filter-section" style="text-align: center;">
             <label for="competition-filter">Filter by Competition:</label>
@@ -149,8 +152,40 @@
         const secs = Math.floor((diff / 1000) % 60);
         timerDiv.textContent = `Next game: ${nextFixture.opponent} (${nextFixture.competition}) in ${days}d ${hours}h ${mins}m ${secs}s`;
     }
+    // Last result logic
+    function getLastResult() {
+        const now = new Date();
+        let last = null;
+        for (let i = 0; i < fixtures.length; i++) {
+            let dateStr = fixtures[i].date;
+            if (dateStr.includes('TBC')) continue;
+            let dateObj = new Date(dateStr + 'T23:59:59');
+            if (dateObj < now) {
+                last = fixtures[i];
+            } else {
+                break;
+            }
+        }
+        return last;
+    }
+    function updateLastResult() {
+        const last = getLastResult();
+        const lastResultDiv = document.getElementById('last-result');
+        if (!last) {
+            lastResultDiv.textContent = "No previous result.";
+            return;
+        }
+        // Show opponent, competition, and score if available
+        let scoreText = last.score ? ` | Score: ${last.score}` : '';
+        lastResultDiv.textContent = `Last: vs ${last.opponent} (${last.competition})${scoreText}`;
+    }
     setInterval(updateCountdown, 1000);
-    document.addEventListener('DOMContentLoaded', updateCountdown);
+    setInterval(updateLastResult, 60000); // Update last result every minute
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(addCompetitionIcons, 100);
+        updateCountdown();
+        updateLastResult();
+    });
     </script>
     <br>
     <br>
